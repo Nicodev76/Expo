@@ -4,10 +4,10 @@ import { StyleSheet, View } from "react-native";
 export default function HomeScreen() {
   return (
     <LinearGradient
-      colors={["#0a0000", "#08084e"]}
-      start={{ x: 0.49, y: 1.0 }}
-      end={{ x: 0.51, y: 0.0 }}
-      style={styles.container}
+      colors={["#05070d", "#0c1326", "#020408"]}
+      start={{ x: 0.2, y: 0.0 }}
+      end={{ x: 0.8, y: 1.0 }}
+      style={styles.body}
     >
       <View></View>
     </LinearGradient>
@@ -15,7 +15,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  body: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
