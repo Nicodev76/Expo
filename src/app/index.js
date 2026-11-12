@@ -1,5 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
   return (
@@ -11,14 +11,16 @@ export default function HomeScreen() {
     >
       <View style={styles.header}></View>
 
-      <View style={styles.elmentenFeld}>
-        <View style={styles.hauptContainer}></View>
-        <View style={styles.hauptContainer}></View>
-        <View style={styles.hauptContainer}></View>
-        <View style={styles.hauptContainer}></View>
-        <View style={styles.hauptContainer}></View>
-        <View style={styles.hauptContainer}></View>
-      </View>
+      <ScrollView contentContainerStyle={styles.elmentenFeld}>
+        <View style={styles.hauptContainer}>
+          <View></View>
+          <View style={styles.öffnenButton}>
+            <Text style={{ color: "#00923a", fontWeight: "bold" }}>
+              öffnen →
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
     </LinearGradient>
   );
 }
@@ -46,26 +48,28 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
 
     height: 500,
-    overflowY: "scroll",
-  },
-  text: {
-    color: "#00FF66",
-    fontSize: 20,
-    fontWeight: "bold",
   },
   hauptContainer: {
     backgroundColor: "rgba(255, 255, 255, 1)",
-    opacity: 0.2,
     borderRadius: 20,
 
-    width: 300,
-    height: 300,
+    padding: 20,
+
+    width: 350,
+    height: 200,
+
+    justifyContent: "space-between",
+  },
+  öffnenButton: {
+    borderTopWidth: 1,
+    borderTopColor: "rgba(0, 0, 0, 1)",
+    paddingTop: 10,
   },
 
   // header
 
   header: {
-    width: "90%",
+    width: 350,
     height: 40,
 
     backgroundColor: "#222222",
