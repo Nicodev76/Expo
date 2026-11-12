@@ -9,7 +9,16 @@ export default function HomeScreen() {
       end={{ x: 0.8, y: 1.0 }}
       style={styles.body}
     >
-      <View></View>
+      <View style={styles.header}></View>
+
+      <View style={styles.elmentenFeld}>
+        <View style={styles.hauptContainer}></View>
+        <View style={styles.hauptContainer}></View>
+        <View style={styles.hauptContainer}></View>
+        <View style={styles.hauptContainer}></View>
+        <View style={styles.hauptContainer}></View>
+        <View style={styles.hauptContainer}></View>
+      </View>
     </LinearGradient>
   );
 }
@@ -17,12 +26,49 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
+
+    paddingTop: 20,
+    paddingBottom: 20,
+
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+  },
+  elmentenFeld: {
+    flex: 1,
+
+    marginTop: 20,
+
+    paddingTop: 20,
+    paddingBottom: 20,
+    gap: 20,
+
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    height: 500,
+    overflowY: "scroll",
   },
   text: {
     color: "#00FF66",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  hauptContainer: {
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    opacity: 0.2,
+    borderRadius: 20,
+
+    width: 300,
+    height: 300,
+  },
+
+  // header
+
+  header: {
+    width: "90%",
+    height: 40,
+
+    backgroundColor: "#222222",
+    borderRadius: 50,
   },
 });
