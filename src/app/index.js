@@ -13,9 +13,38 @@ export default function HomeScreen() {
 
       <ScrollView contentContainerStyle={styles.elmentenFeld}>
         <View style={styles.hauptContainer}>
-          <View></View>
+          <View>
+            {/* Oberer Abteil vom elmentenfeld mit icon und Name */}
+
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
+            >
+              <View style={styles.symbolView}></View>
+              <View>
+                <Text style={{ color: "gray", fontWeight: "500" }}>
+                  Documentation
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 19,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Service Schein
+                </Text>
+              </View>
+            </View>
+
+            {/* Unterer Abteil vom elmentenfeld mit einer Kurzen beschreibung dieses elments */}
+            <View style={{ marginTop: 10 }}>
+              <Text style={{ fontWeight: "600", color: "#393a3a" }}>
+                Service-Aufträge erfassen und Arbeizzeiten documentiren und
+                Unterschrifeten von Kunden einholen
+              </Text>
+            </View>
+          </View>
           <View style={styles.öffnenButton}>
-            <Text style={{ color: "#00923a", fontWeight: "bold" }}>
+            <Text style={{ color: "rgba(9, 190, 255, 1)", fontWeight: "bold" }}>
               öffnen →
             </Text>
           </View>
@@ -64,6 +93,12 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "rgba(0, 0, 0, 1)",
     paddingTop: 10,
+  },
+  symbolView: {
+    width: 50,
+    height: 50,
+    backgroundColor: "rgba(9, 190, 255, 1)",
+    borderRadius: 10,
   },
 
   // header
