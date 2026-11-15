@@ -5,8 +5,52 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useState } from "react";
 
 export function LoginSeite() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const login = async () => {
+    if( !username || !password){
+      alert("Bitte Benutzernamen und Password eingben.");
+      return;
+    }
+
+    try{
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json",},
+        
+        body: JSON.stringify({
+          username: username,
+          password:password,
+        })
+      })
+
+      const data = await response.json();
+
+      if(response.ok){
+        alert("Login erfolgreich Wilkommen.");
+        
+        if(data.is_temp_password){
+          console.log("Erster Login mit Temporeren Passwort.");
+        }
+        else{
+          console.log("Normaler Login", data.userId);
+        }
+      }
+      else{
+        console.error("Fehler: ", data.error);
+      }
+    }
+
+    catch(err){
+      console.error("Verbindungsfehler", err);
+      alert("Der Server ist gerade nicht ereichbar.")
+    }
+  };
+
   return (
     <View
       style={{
@@ -38,14 +82,18 @@ export function LoginSeite() {
           style={styles.inputFeler}
           placeholder="Benutzerid"
           placeholderTextColor="#888"
+          value={username}
+          onChangeText={setUsername}
         ></TextInput>
         <TextInput
           style={styles.inputFeler}
           placeholder="Passwort"
           placeholderTextColor="#888"
           secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
         ></TextInput>
-        <TouchableOpacity style={styles.Button}>
+        <TouchableOpacity style={styles.Button} onPress={login}>
           <Text style={styles.ButtonText}>Anmelden</Text>
         </TouchableOpacity>
       </View>
