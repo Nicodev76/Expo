@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/login", (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, firma_id } = req.body;
 
   db.get(
     `SELECT * FROM benutzer WHERE system_username = ?`,
@@ -86,6 +86,7 @@ app.post("/api/login", (req, res) => {
             message: "Login erfolgreich",
             isTempPassword: user.is_temp_password === 1, // Sagt der App, ob es der Erstlogin ist
             userId: user.id,
+            firmaId: user.firma_id
           });
         },
       );

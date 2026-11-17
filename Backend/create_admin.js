@@ -23,7 +23,7 @@ const db = new sqlite3.Database("./db.sqlite3", async (err) => {
       }
 
       // 2. Passwort sicher verschlüsseln (bcrypt)
-      const klartextPasswort = "admin123"; // <--- Hier dein Wunsch-Passwort eintragen
+      const klartextPasswort = "admin"; // <--- Hier dein Wunsch-Passwort eintragen
       const hashedPassword = await bcrypt.hash(klartextPasswort, 10);
 
       const username = "admin"; // <--- Dein Login-Benutzername
