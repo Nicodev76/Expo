@@ -1,5 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image } from "react-native";
+
 
 export default function HauptSeite() {
   return (
@@ -27,10 +29,18 @@ export default function HauptSeite() {
             <View
               style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
             >
-              <View style={styles.symbolView}></View>
+              <View style={styles.symbolView}>
+                
+                <Image
+                  source={require("./icons/kontoAdmin.png")}
+                  style={{ width: 32, height: 32 }}
+                  resizeMode="contain"
+                />
+                
+              </View>
               <View>
                 <Text style={{ color: "gray", fontWeight: "500" }}>
-                  Documentation
+                  {/* kann man noch etwas reinschreiben wenn man will */}
                 </Text>
                 <Text
                   style={{
@@ -38,7 +48,7 @@ export default function HauptSeite() {
                     fontWeight: "bold",
                   }}
                 >
-                  Service Schein1
+                  Konten
                 </Text>
               </View>
             </View>
@@ -46,13 +56,12 @@ export default function HauptSeite() {
             {/* Unterer Abteil vom elmentenfeld mit einer Kurzen beschreibung dieses elments */}
             <View style={{ marginTop: 10 }}>
               <Text style={{ fontWeight: "600", color: "#393a3a" }}>
-                Service-Aufträge erfassen und Arbeizzeiten documentiren und
-                Unterschrifeten von Kunden einholen
+                Konten erstellen und je nach dem auch einsehen und verwalten
               </Text>
             </View>
           </View>
           <View style={styles.öffnenButton}>
-            <Text style={{ color: "rgba(9, 190, 255, 1)", fontWeight: "bold" }}>
+            <Text style={{ color: "rgba(9, 190, 255, 1)", fontWeight: "bold", cursor: "pointer" }}>
               öffnen →
             </Text>
           </View>
@@ -107,6 +116,9 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: "rgba(9, 190, 255, 1)",
     borderRadius: 10,
+
+    justifyContent: "center",
+    alignItems: "center"
   },
 
   // header

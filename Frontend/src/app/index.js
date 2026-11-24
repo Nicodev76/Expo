@@ -20,10 +20,10 @@ export default function HomeScreen() {
 
       switch (Number(firmaId)) {
         case 1:
-          modul = await import("../layouts/ServiceFirma1");
+          modul = await import("../layouts/Firma1");
           break;
         case 2:
-          modul = await import("../layouts/ServiceFirma2");
+          modul = await import("../layouts/Firma2");
           break;
         default:
           throw new Error("Kein passendes Layout für Firmen-ID: " + firmaId);
